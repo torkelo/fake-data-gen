@@ -16,13 +16,22 @@ function live() {
     help: "Counters"
   });
 
+  var bytes = client.newGauge({
+    namespace: "gauge",
+    name: "bytes",
+    help: "bytes"
+  });
 
   client.listen(9091);
   var data = {};
+  var bytesCounter = 0;
 
   function randomWalk(labels, variation) {
     logins.increment(labels, (Math.random() * variation) - (variation / 2));
     requests.increment(labels, 100 + (Math.random() * 10));
+
+    bytesCounter++;
+    bytes.set(labels, bytesCounter);
   }
 
   setInterval(function() {
