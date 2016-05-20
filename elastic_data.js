@@ -133,17 +133,17 @@ function liveFeedToLogstash() {
   }
 
   setInterval(function() {
-    randomWalk('logins.count', { source: 'backend', hostname: 'server1' }, 100, 2);
-    randomWalk('logins.count', { source: 'backend', hostname: 'server2' }, 100, 2);
-    randomWalk('logins.count', { source: 'backend', hostname: 'server3' }, 100, 2);
-    randomWalk('logins.count', { source: 'backend', hostname: 'server/4' }, 100, 2);
-    randomWalk('logins.count', { source: 'backend', hostname: 'server-5' }, 100, 2);
-    randomWalk('logins.count', { source: 'site', hostname: 'server1' }, 100, 2);
-    randomWalk('logins.count', { source: 'site', hostname: 'server 20' }, 100, 2);
-    randomWalk('logins.count', { source: 'site', hostname: 'server"21' }, 100, 2);
-    randomWalk('cpu', { source: 'site', hostname: 'server1' }, 100, 2);
-    randomWalk('cpu', { source: 'site', hostname: 'server2' }, 100, 2);
-    randomWalk('erratic', { source: 'site', hostname: 'server2' }, 100, 20);
+    randomWalk('logins.count', { source: 'backend', hostname: 'server1', number: 1 }, 100, 2);
+    randomWalk('logins.count', { source: 'backend', hostname: 'server2', number: 2 }, 100, 2);
+    randomWalk('logins.count', { source: 'backend', hostname: 'server3', number: 3 }, 100, 2);
+    randomWalk('logins.count', { source: 'backend', hostname: 'server/4', number: 4 }, 100, 2);
+    randomWalk('logins.count', { source: 'backend', hostname: 'server-5', number: 5 }, 100, 2);
+    randomWalk('logins.count', { source: 'site', hostname: 'server1', number: 1 }, 100, 2);
+    randomWalk('logins.count', { source: 'site', hostname: 'server 20', number: 20 }, 100, 2);
+    randomWalk('logins.count', { source: 'site', hostname: 'server"21', number: 21 }, 100, 2);
+    randomWalk('cpu', { source: 'site', hostname: 'server1', number: 1 }, 100, 2);
+    randomWalk('cpu', { source: 'site', hostname: 'server2', number: 2 }, 100, 2);
+    randomWalk('erratic', { source: 'site', hostname: 'server2', number: 2 }, 100, 20);
     derivativeTest();
   }, 10000);
 
