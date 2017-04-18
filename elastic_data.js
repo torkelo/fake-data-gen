@@ -33,7 +33,7 @@ function liveFeedToLogstash() {
             "strings": {
               "match_mapping_type": "string",
               "mapping": {
-                "type": "text",
+                "type": "keyword",
                 "index" : "not_analyzed",
                 "omit_norms" : true,
               }
