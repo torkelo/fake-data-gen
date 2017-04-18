@@ -21,12 +21,10 @@ function liveFeedToLogstash() {
         "_source" : {"enabled" : false },
 
         "properties": {
-          "@value": {type: 'float', },
+          "@value":     { type: 'double', },
           "@timestamp": {type: 'date', "format": "epoch_millis" },
           "@location": {
-            "type":               "geo_point",
-            "geohash_prefix":     true,
-            "geohash_precision":  "1km"
+            "type": "geo_point",
           }
         },
 
@@ -35,7 +33,7 @@ function liveFeedToLogstash() {
             "strings": {
               "match_mapping_type": "string",
               "mapping": {
-                "type": "string",
+                "type": "text",
                 "index" : "not_analyzed",
                 "omit_norms" : true,
               }
